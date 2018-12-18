@@ -1,4 +1,4 @@
-module kogge(A,B,Cin,S);
+module kogge(A,B,Cin,S,Cout);
 // I/O Decleration
 input [3:0] A,B;
 input Cin;
@@ -12,7 +12,7 @@ assign G = A&B;
 assign C[0] = G[0];
 assign C[1] = (P[1]&G[0])|G[1];
 assign C[2] = ((P[2]&P[1])&G[0])|((P[2]&G[1])|G[2]);
-assign S[4] = ((P[3]&P[2])&G[1])|((P[3]&G[3])|G[3]);
+assign Cout = ((P[3]&P[2])&G[1])|((P[3]&G[3])|G[3]);
 //sum generation
 assign S[0] = P[0]^Cin;
 assign S[1] = P[1]^C[0];
